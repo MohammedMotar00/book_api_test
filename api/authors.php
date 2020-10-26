@@ -5,17 +5,17 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 include_once '../database/database.php';
-include_once '../types/books.php';
+include_once '../types/authors.php';
 
 // Connect to DB
 $database = new Database();
 $db = $database->connect();
 
-// Books object
-$books = new Books($db);
+// Authors object
+$authors = new Authors($db);
 
 // read query books
-$result = $books->getBooks();
+$result = $authors->getAuthors();
 
 // Get row count
 $rowCount = $result->rowCount();
@@ -24,25 +24,24 @@ $rowCount = $result->rowCount();
 if ($rowCount > 0) {
   // Books array
   // $books_arr;
-  $books_arr['data'] = array();
+  $authors_arr['data'] = array();
 
   // loop the result
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     // use extract() to get values as variables
     extract($row);
 
-    $book_item = array(
+    $author_item = array(
       'id' => $id,
-      'title' => $title,
-      'isbn' => $isbn,
-      'description' => $description
+      'name' => $name,
+      'biography' => $biography,
     );
 
     // Push to book arr in 'data'
-    array_push($books_arr['data'], $book_item);
+    array_push($authors_arr['data'], $author_item);
   }
 
-  echo json_encode($books_arr);
+  echo json_encode($authors_arr);
 } else {
   // No books
   echo json_encode(array('message' => 'No books found!'));

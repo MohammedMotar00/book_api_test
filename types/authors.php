@@ -1,6 +1,6 @@
 <?php
 
-class Books
+class Authors
 {
   public function __construct($db)
   {
@@ -9,15 +9,14 @@ class Books
 
   // DB stuff
   private $conn;
-  private $table = 'books';
+  private $table = 'authors';
 
   public $id;
-  public $title;
-  public $isbn;
-  public $description;
+  public $name;
+  public $biography;
 
   // Get books
-  public function getBooks()
+  public function getAuthors()
   {
     // Create query
     $query = 'SELECT * FROM ' . $this->table;
