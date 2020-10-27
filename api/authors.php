@@ -22,8 +22,6 @@ $rowCount = $result->rowCount();
 
 // Check if there is any books
 if ($rowCount > 0) {
-  // Books array
-  // $books_arr;
   $authors_arr['data'] = array();
 
   // loop the result

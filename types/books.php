@@ -11,11 +11,6 @@ class Books
   private $conn;
   private $table = 'books';
 
-  public $id;
-  public $title;
-  public $isbn;
-  public $description;
-
   // Get books
   public function getBooks()
   {

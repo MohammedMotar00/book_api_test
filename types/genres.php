@@ -11,9 +11,6 @@ class Genres
   private $conn;
   private $table = 'genres';
 
-  public $id;
-  public $name;
-
   // Get books
   public function getGenres()
   {

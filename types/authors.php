@@ -11,10 +11,6 @@ class Authors
   private $conn;
   private $table = 'authors';
 
-  public $id;
-  public $name;
-  public $biography;
-
   // Get books
   public function getAuthors()
   {
