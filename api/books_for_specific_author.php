@@ -5,17 +5,17 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 include_once '../database/database.php';
-include_once '../types/author_books.php';
+include_once '../types/books_for_specific_author.php';
 
 $database = new Database();
 $db = $database->connect();
 
-$author_books = new AuthorBooks($db);
+$books_author = new BooksForSpecificAuthor($db);
 
-$author_books->id = isset($_GET['id']) ? $_GET['id'] : die();
+$books_author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 // Get single book
-$result = $author_books->author_books();
+$result = $books_author->books_author();
 
 $rowCount = $result->rowCount();
 

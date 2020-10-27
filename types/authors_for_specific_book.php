@@ -1,5 +1,5 @@
 <?php
-class AuthorBooks
+class AuthorsForSpecificBook
 {
   public function __construct($db)
   {
@@ -19,8 +19,8 @@ class AuthorBooks
       FROM
         ' . $this->table . '
       LEFT JOIN
-        books b ON book_id = b.id
-      WHERE author_id = ?
+        authors a ON author_id = a.id
+      WHERE book_id = ?
     ';
 
     // Prepare statement
